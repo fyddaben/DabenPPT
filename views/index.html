@@ -8,9 +8,64 @@
 
   </head>
   <body>
-   	<textarea class="editor" id="textinput"><% if(fql){%><%-fql.con %><%}%></textarea>
+   	<textarea class="editor" id="textinput"><% if(fql){%><%-fql.con %><%}else{%>##DabenPPT是什么?
+一个在线编辑markdown文档的编辑器,并能生成ppt的这么个东西
+
+
+##DabenPPT有哪些功能？
+
+* 编辑和预览`同步滚动`，所见即所得
+* 有数量也有质量的`主题`,编辑器和预览区域
+* 完美兼容`Github`的markdown语法
+* 预览区域`代码高亮`
+* 所有选项自动记忆
+* 根据配置生成你想要的PPT
+
+##有问题反馈
+在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流
+
+* 邮件(daben1990#gmail.com, 把#换成@)
+* QQ: 8387330592
+* weibo: [@daben1990](http://weibo.com/daben1990)
+
+
+##关于作者
+
+```javascript
+  var ihubo = {
+    nickName  : "大奔",
+    site : "http://www.zgenk.com"
+  }
+```<%}%></textarea>
     <div class="page">
-      <% if(fql){%><%-fql.ppCon %><%}%>
+      <% if(fql){%><%-fql.ppCon %><%}else{%>
+    <h2>DabenPPT是什么?</h2>
+<p>一个在线编辑markdown文档的编辑器,并能生成ppt的这么个东西</p>
+<h2>DabenPPT有哪些功能？</h2>
+<ul>
+<li>编辑和预览<code>同步滚动</code>，所见即所得</li>
+<li>有数量也有质量的<code>主题</code>,编辑器和预览区域</li>
+<li>完美兼容<code>Github</code>的markdown语法</li>
+<li>预览区域<code>代码高亮</code></li>
+<li>所有选项自动记忆</li>
+<li>根据配置生成你想要的PPT</li>
+</ul>
+<h2>有问题反馈</h2>
+<p>在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流</p>
+<ul>
+<li>邮件(daben1990#gmail.com, 把#换成@)</li>
+<li>QQ: 8387330592</li>
+<li>weibo: <a href="http://weibo.com/daben1990">@daben1990</a></li>
+</ul>
+<h2>关于作者</h2>
+<pre><code class="lang-javascript"><div class="highlight"><pre>  <span class="kd">var</span> <span class="nx">ihubo</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">nickName</span>  <span class="o">:</span> <span class="s2">"大奔"</span><span class="p">,</span>
+    <span class="nx">site</span> <span class="o">:</span> <span class="s2">"http://www.zgenk.com"</span>
+  <span class="p">}</span>
+</pre></div>
+</code></pre>
+
+      <%}%>
     </div>
 
 
