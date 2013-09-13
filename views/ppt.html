@@ -10,9 +10,8 @@
     <meta name="author" content="Bartek Szopka" />
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
-    <link href="css/pageVelocity.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="images/favicon.png" />
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+    <link href="/stylesheets/ppt.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="http://page.zgenk.com/images/e1f0f92492de28f5c9064957d4842002.jpg" />
 </head>
 <body class="impress-not-supported">
 	<div class="fallback-message">
@@ -20,45 +19,16 @@
 		    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
 	</div>
 	<div id="impress">
-		<div id="bored"  class="step slide" data-x="-1000" data-y="-1500" >
-       		  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
-		    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
-    	</div>
 		
-		<div class="step slide" data-x="0" data-y="-1500"  data-z="-200">
-		    <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
-		</div> 
-		<div class="step slide" data-x="1000" data-y="-1500" data-z="-200">
-		    <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
-		</div> 
-		<div class="step slide" data-x="2000" data-y="-1500" data-z="-200">
-		    <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
-		</div> 
-		<div class="step slide" data-x="3000" data-y="-1500" data-z="-200">
-		    <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
-		</div> 
-		<div class="step slide" data-x="4000" data-y="-1500" data-z="-200">
-		    <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
-		</div> 
-		<div class="step slide" data-x="5000" data-y="-1500" data-z="-200">
-		    <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
-		</div> 
-		<div class="step slide" data-x="6000" data-y="-1500" data-z="-200">
-		    <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
-		</div> 
-		<div class="step slide" data-x="7000" data-y="-1500" data-z="-200">
-		    <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
-		</div> 
-		<div class="step slide" data-x="8000" data-y="-1500" data-z="-200">
-		    <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
-		</div> 
-		<div class="step slide" data-x="9000" data-y="-1500" data-z="-200">
-		    <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
+		<% ppts.forEach(function(ppt){ %>	
+		<div <% if(ppt.conf.backNeed==1){%>class="step slide page"<% }else{ %>class="step page"<% } %>  data-x="<%=ppt.conf.coord.x %>" data-y="<%=ppt.conf.coord.y %>"  data-z="<%=ppt.conf.coord.z %>" data-scale="<%=ppt.conf.scale %>" data-rotate="<%=ppt.conf.TwodDeg %>"  data-rotate-x="<%=ppt.conf.ThrdXDeg %>" data-rotate-y="<%=ppt.conf.ThrdYDeg %>">
+			   <p>
+			    	<%- ppt.content %>
+			   </p>
 		</div> 
 
-    	<div id="overview" class="step" data-x="4000"  data-y="-1500" data-scale="8">
-
-    	</div>
+		<% }) %>	
+   	
 	</div>
 	<div class="hint">
 		<p>Use a spacebar or arrow keys to navigate</p>
@@ -67,7 +37,7 @@
 	if ("ontouchstart" in document.documentElement) { 
 		document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
 	}
-	var keydown=function(e){
+	var keydown=function(e){ 
 		var e=e||event;
 		if(e.keyCode==27){//增加全局预览
 			 window.location.hash="#/overview";
@@ -75,9 +45,13 @@
 	}
 	document.onkeydown=keydown;
 	</script>
-	<script type="text/javascript" src="js/impress.js"></script>
+	<script type="text/javascript" src="/javascripts/ppt.js"></script>
 	<script type="text/javascript">
 		impress().init();
+
+
+
+
 	</script>
 </body>
 </html>

@@ -1,25 +1,81 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>PPT编辑器</title>
 
-    <link href="stylesheets/index.css" rel="stylesheet" />
-
+    <link href="/stylesheets/index.css" rel="stylesheet" />
+<link rel="shortcut icon" href="http://page.zgenk.com/images/e1f0f92492de28f5c9064957d4842002.jpg" />
 
   </head>
   <body>
-   	<textarea class="editor" id="textinput"></textarea>
+   	<textarea class="editor" id="textinput"><% if(fql){%><%-fql.con %><%}%></textarea>
     <div class="page">
-
-
+      <% if(fql){%><%-fql.ppCon %><%}%>
     </div>
+
+
+    
     <div class="tool">
-    	<button type="button">SAVE</button>
-    	<button type="button">上一页</button>
-    	<button type="button">下一页</button>
-    	<button type="button">预览</button>
+    	<button type="button" id="lastPage">上一页</button>
+    	<button type="button" id="nextPage">下一页</button>
+    	<button type="button" id="hello">Hello World</button>
+      <button type="button" id="funkStyle">特效</button>
+      <button type="button" id="attention">注意</button>
+      <button type="button" id="finish">保存</button>
+      <input type="hidden" id="hid_panelVal" value='<%=  sql %>'>
+      <input type="hidden" id="hid_pptId" value="<%=  titleid %>">
+
+      <input type="hidden" id="hid_content" value="">
+    </div> 
+    <div class="mask hide"></div>
+    <div class="board config hide">
+    <a href="#" class="close">x</a>
+    <h2>自定义当前幻灯片样式</h2>
+    <div class="zuobiao">
+       当前ppt所属页码:<input type="text" value="1" id="curpage">
     </div>
-    <script type="text/javascript" src="http://www.xiaomi.com/js/libs/jquery18.js"></script>
-    <script type="text/javascript" src="javascripts/index.js"></script>
+    <div class="zuobiao">
+      是否需要白色背景:<input type="radio" style="
+      vertical-align: middle;
+width: 20px;
+margin-right: 10px;"  class="backNeed" name="background" id="yes" value="1">
+<label for="yes">是</label>
+      <input type="radio" style="
+      vertical-align: middle;
+width: 20px;
+margin-right: 10px;" name="background" class="backNeed" id="no" value="0"><label for="no">否</label>
+    </div> 
+
+    <div class="zuobiao">
+      放大倍数:<input type="text" value="0" id="scale">
+    </div>
+    <div class="zuobiao">
+      空间X坐标(px)：<input type="text" value="0" id="coordX"/>
+      空间Y坐标(px)：<input type="text" value="0" id="coordY"/>
+      空间Z坐标(px)：<input type="text" value="0" id="coordZ"/>
+    </div>
+    <div class="zuobiao">
+      2D平面旋转角度(deg)：<input type="text" value="0" id="TwodDeg"/>
+    </div>
+    <div class="zuobiao">
+      3D立体X轴旋转(deg)：<input type="text" value="0" id="ThrdXDeg"/>
+      3D立体Y轴旋转(deg)：<input type="text" value="0" id="ThrdYDeg"/>
+    </div>
+    <div class="zuobiao">
+      <button type="button" class="confirm" id="sure">确定</button>
+      <button type="button" class="confirm" id="cancel">取消</button>
+    </div>
+    </div>
+    <div class="board result hide">
+       <a href="#" class="close">x</a>
+         <h2>请记好您的PPt在线演示地址</h2>
+         <p>在线地址为<a target="_blank" href="http://www.zgenk.com/ppt/<%=  titleid %>">http://www.zgenk.com/ppt/<%=  titleid %></a></p>
+         <p>在线修改地址为<a target="_blank" href="http://www.zgenk.com/ppt/update/<%=  titleid %>">http://www.zgenk.com/ppt/update/<%= titleid %></a></p>
+
+    </div>
+
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/index.js"></script>
+
   </body>
 </html>
